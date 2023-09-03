@@ -30,5 +30,16 @@ namespace Esuriru.Items.Utility.ExtensionMethods
             }
             return newTextBuilder.ToString();
         }
+
+        /// <summary>
+        /// Get the name of the backing field of an auto property
+        /// using the property name
+        /// </summary>
+        /// <param name="propertyName">Name of auto property</param>
+        /// <returns>Backing field of auto property</returns>
+        public static string BackingField(this string propertyName)
+        {
+            return "<" + propertyName + ">k__BackingField";
+        }
     }
 }
