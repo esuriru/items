@@ -4,6 +4,13 @@ using UnityEngine;
     menuName = "items/Scriptable Objects/Item Base")]
 public class ItemBase : ScriptableObject 
 {
+    #region Public 
+
+    /// <summary>
+    /// Name of the item that uses the name of the Scriptable Object
+    /// </summary>
     [field: SerializeField]
     public string Name { get; protected set; }
+
+    #endregion
 }
