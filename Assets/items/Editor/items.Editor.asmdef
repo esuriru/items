@@ -1,7 +1,9 @@
 {
     "name": "Editor",
     "rootNamespace": "",
-    "references": [],
+    "references": [
+        "GUID:5cb5c9c76afd7f642a59119909959cd8"
+    ],
     "includePlatforms": [
         "Editor",
         "WindowsStandalone32",
