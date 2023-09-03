@@ -5,6 +5,7 @@ using Esuriru.Items.Utility;
 using Esuriru.Items.Utility.Debug;
 
 // TODO - Should I put this class in a namespace
+// TODO - Add comments
 
 [CustomPropertyDrawer(typeof(ShowIfAttribute))]
 public class ShowIfDrawer : PropertyDrawer

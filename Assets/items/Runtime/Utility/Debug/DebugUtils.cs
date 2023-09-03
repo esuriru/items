@@ -4,6 +4,7 @@ namespace Esuriru.Items.Utility.Debug
 {
     public static class DebugUtils
     {
+        // TODO - Add comments
         public static void Assert(bool condition, string message)
         {
             UnityEngine.Assertions.Assert.IsTrue(condition, message);

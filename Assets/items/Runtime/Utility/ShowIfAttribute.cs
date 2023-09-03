@@ -2,13 +2,14 @@ using System;
 
 using UnityEngine;
 
-using Esuriru.Items.Utility.ExtensionMethods;
+using Esuriru.Items.Utility.Extensions;
 
 namespace Esuriru.Items.Utility
 {
     [AttributeUsage(AttributeTargets.Field)]
     public class ShowIfAttribute : PropertyAttribute
     {
+        // TODO - Add comment
         public enum Type
         {
             Hide,

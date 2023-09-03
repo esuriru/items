@@ -1,9 +1,10 @@
 using System.Text;
 
-namespace Esuriru.Items.Utility.ExtensionMethods
+namespace Esuriru.Items.Utility.Extensions
 {
     public static class StringExtensionMethods
     {
+        // TODO - Add comments
         public static string ToSentence(this string text, bool preserveAcronyms)
         {
             // Return empty string when the string is invalid for conversion

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-using Esuriru.Items.Utility.ExtensionMethods;
+using Esuriru.Items.Utility.Extensions;
 
 namespace Esuriru.Items
 {
