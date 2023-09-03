@@ -22,7 +22,7 @@ namespace Esuriru.Items
                 // the name before returning  
                 if (string.IsNullOrWhiteSpace(_name))
                 {
-                    Init();
+                    InitName(false);
                 }
                 return _name;
             }
@@ -44,7 +44,7 @@ namespace Esuriru.Items
         /// </summary>
         private void OnValidate()
         {
-            Init();
+            InitName();
         }
 
         /// <summary>
@@ -52,14 +52,17 @@ namespace Esuriru.Items
         /// </summary>
         private void OnEnable()
         {
-            Init();
+            InitName();
         }
 
-        private void Init()
+        private void InitName(bool checkEmpty = true)
         {
             // TODO: Add the option to choose whether
             // to preserve acronyms
-            _name = name.ToSentence(true);
+            if (!checkEmpty || string.IsNullOrWhiteSpace(_name))
+            {
+                _name = name.ToSentence(true);
+            }
         }
 
         #endregion
