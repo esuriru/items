@@ -13,4 +13,13 @@ public class ItemBase : ScriptableObject
     public string Name { get; protected set; }
 
     #endregion
+
+    #region Protected
+
+    protected void OnEnable()
+    {
+
+    }
+
+    #endregion
 }
