@@ -11,17 +11,27 @@ namespace Esuriru.Items
         /// <summary>
         /// Name of the item that uses the name of the Scriptable Object
         /// </summary>
-        [field: SerializeField]
-        public string Name { get; protected set; }
+        public string Name 
+        { 
+            get 
+            {
+                if (string.IsNullOrEmpty(_name))
+                {
+
+                }
+                return _name;
+            }
+            protected set 
+            {
+
+            }
+        }
 
         #endregion
 
-        #region Protected
+        #region Private 
 
-        protected void OnEnable()
-        {
-
-        }
+        private string _name;
 
         #endregion
     }
