@@ -55,6 +55,10 @@ namespace Esuriru.Items
             InitName();
         }
 
+        /// <summary>
+        /// Initializes the name field
+        /// </summary>
+        /// <param name="checkEmpty">Preliminary check</param>
         private void InitName(bool checkEmpty = true)
         {
             // TODO: Add the option to choose whether

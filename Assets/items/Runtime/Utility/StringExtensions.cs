@@ -4,7 +4,12 @@ namespace Esuriru.Items.Utility.Extensions
 {
     public static class StringExtensionMethods
     {
-        // TODO - Add comments
+        /// <summary>
+        /// Convert a PascalCase string into spaced out string by capitals 
+        /// </summary>
+        /// <param name="text">Reference text</param>
+        /// <param name="preserveAcronyms">Whether to preserve acronyms</param>
+        /// <returns></returns>
         public static string ToSentence(this string text, bool preserveAcronyms)
         {
             // Return empty string when the string is invalid for conversion

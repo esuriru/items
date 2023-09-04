@@ -6,20 +6,34 @@ using Esuriru.Items.Utility.Extensions;
 
 namespace Esuriru.Items.Utility
 {
+    /// <summary>
+    /// Attribute for conditional fields in Unity Inspector
+    /// </summary>
     [AttributeUsage(AttributeTargets.Field)]
     public class ShowIfAttribute : PropertyAttribute
     {
-        // TODO - Add comment
+        /// <summary>
+        /// Type of disability for field
+        /// </summary>
         public enum Type
         {
             Hide,
             ReadOnly
         }
 
+        /// <summary>
+        /// Name of field the attribute is on
+        /// </summary>
         public string Name { get; private set; }
 
+        /// <summary>
+        /// Value of field the attribute is on
+        /// </summary>
         public object Value { get; private set; }
 
+        /// <summary>
+        /// Type of disable for this attribute
+        /// </summary>
         public Type DisableType { get; private set; }
 
         /// <summary>

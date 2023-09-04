@@ -5,7 +5,6 @@ using Esuriru.Items.Utility;
 using Esuriru.Items.Utility.Debug;
 
 // TODO - Should I put this class in a namespace
-// TODO - Add comments
 
 [CustomPropertyDrawer(typeof(ShowIfAttribute))]
 public class ShowIfDrawer : PropertyDrawer
@@ -25,6 +24,11 @@ public class ShowIfDrawer : PropertyDrawer
         return base.GetPropertyHeight(property, label);
     }
 
+    /// <summary>
+    /// Check whther property should be shown
+    /// </summary>
+    /// <param name="property">Property in question</param>
+    /// <returns>true if should be shown</returns>
     private bool CheckShow(SerializedProperty property)
     {
         _showIfAttribute = attribute as ShowIfAttribute;
