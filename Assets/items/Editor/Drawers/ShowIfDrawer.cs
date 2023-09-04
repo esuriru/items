@@ -72,6 +72,13 @@ namespace Esuriru.Items.Editor
                 EditorGUI.PropertyField(position, property);
                 GUI.enabled = true;
             }
+            else if (_showIfAttribute.DisableType ==
+                ShowIfAttribute.Type.ReadOnly)
+            {
+                GUI.enabled = false;
+                EditorGUI.PropertyField(position, property, label, true);
+                GUI.enabled = true;
+            }
         }
     }
 }
