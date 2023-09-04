@@ -39,8 +39,8 @@ namespace Esuriru.Items.Utility
         /// <summary>
         /// ShowIfAttribute constructor  
         /// </summary>
-        /// <param name="name">Name of the field/property</param>
-        /// <param name="value">Value of the field/property</param>
+        /// <param name="name">Name of the dependent field/property</param>
+        /// <param name="value">Target value on dependent to show</param>
         /// <param name="property">Is attribute on property</param>
         /// <param name="disableType">Type of disable</param>
         public ShowIfAttribute(string name, object value,
