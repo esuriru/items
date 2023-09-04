@@ -4,73 +4,74 @@ using UnityEditor;
 using Esuriru.Items.Utility;
 using Esuriru.Items.Utility.Debug;
 
-// TODO - Should I put this class in a namespace
-
-[CustomPropertyDrawer(typeof(ShowIfAttribute))]
-public class ShowIfDrawer : PropertyDrawer
+namespace Esuriru.Items.Editor
 {
-    private ShowIfAttribute _showIfAttribute;
-    private SerializedProperty _comparedField;
-
-    public override float GetPropertyHeight(SerializedProperty property,
-        GUIContent label)
+    [CustomPropertyDrawer(typeof(ShowIfAttribute))]
+    public class ShowIfDrawer : PropertyDrawer
     {
-        if (!CheckShow(property) && _showIfAttribute.DisableType ==
-            ShowIfAttribute.Type.Hide)
+        private ShowIfAttribute _showIfAttribute;
+        private SerializedProperty _comparedField;
+
+        public override float GetPropertyHeight(SerializedProperty property,
+            GUIContent label)
         {
-            return 0f;
+            if (!CheckShow(property) && _showIfAttribute.DisableType ==
+                ShowIfAttribute.Type.Hide)
+            {
+                return 0f;
+            }
+
+            return base.GetPropertyHeight(property, label);
         }
 
-        return base.GetPropertyHeight(property, label);
-    }
-
-    /// <summary>
-    /// Check whther property should be shown
-    /// </summary>
-    /// <param name="property">Property in question</param>
-    /// <returns>true if should be shown</returns>
-    private bool CheckShow(SerializedProperty property)
-    {
-        _showIfAttribute = attribute as ShowIfAttribute;
-
-        string name = _showIfAttribute.Name;
-        object value = _showIfAttribute.Value;
-
-        _comparedField = property.serializedObject.FindProperty(name);
-        DebugUtils.Assert(_comparedField != null, "Cannot find property name");
-
-        switch (_comparedField.type)
+        /// <summary>
+        /// Check whther property should be shown
+        /// </summary>
+        /// <param name="property">Property in question</param>
+        /// <returns>true if should be shown</returns>
+        private bool CheckShow(SerializedProperty property)
         {
-            case "bool":
-                return _comparedField.boolValue.Equals(value);
+            _showIfAttribute = attribute as ShowIfAttribute;
 
-            case "Enum":
-                return _comparedField.enumValueIndex.Equals((int)value);
+            string name = _showIfAttribute.Name;
+            object value = _showIfAttribute.Value;
 
-            default:
-                DebugUtils.Fatal("Unhandled type");
-                return true;
+            _comparedField = property.serializedObject.FindProperty(name);
+            DebugUtils.Assert(_comparedField != null, "Cannot find property name");
+
+            switch (_comparedField.type)
+            {
+                case "bool":
+                    return _comparedField.boolValue.Equals(value);
+
+                case "Enum":
+                    return _comparedField.enumValueIndex.Equals((int)value);
+
+                default:
+                    DebugUtils.Fatal("Unhandled type");
+                    return true;
+            }
         }
-    }
 
-    public override void OnGUI(Rect position, SerializedProperty property,
-        GUIContent label)
-    {
-        if (CheckShow(property))
+        public override void OnGUI(Rect position, SerializedProperty property,
+            GUIContent label)
         {
-            EditorGUI.PropertyField(position, property, label);
-        }
-        else if (_showIfAttribute.DisableType ==
-            ShowIfAttribute.Type.Hide)
-        {
-            // HACK: To remove the circle of the object
-            // picker since that does not seem to go away even with
-            // a height of 0
-            position.y = 10000f;
+            if (CheckShow(property))
+            {
+                EditorGUI.PropertyField(position, property, label);
+            }
+            else if (_showIfAttribute.DisableType ==
+                ShowIfAttribute.Type.Hide)
+            {
+                // HACK: To remove the circle of the object
+                // picker since that does not seem to go away even with
+                // a height of 0
+                position.y = 10000f;
 
-            GUI.enabled = false;
-            EditorGUI.PropertyField(position, property);
-            GUI.enabled = true;
+                GUI.enabled = false;
+                EditorGUI.PropertyField(position, property);
+                GUI.enabled = true;
+            }
         }
     }
 }
