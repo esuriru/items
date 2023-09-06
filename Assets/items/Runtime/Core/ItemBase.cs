@@ -14,7 +14,8 @@ namespace Esuriru.Items
         [SerializeField]
         private bool _enableCustomName;
 
-        [ShowIf("_enableCustomName", true, disableType: ShowIfAttribute.Type.ReadOnly)]
+        [ShowIf("_enableCustomName", true, disableType: 
+            ShowIfAttribute.Type.ReadOnly)]
         [SerializeField]
         private string _name;
     
