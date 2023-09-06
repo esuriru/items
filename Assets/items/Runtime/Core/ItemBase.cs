@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 using UnityEngine;
 
 using Esuriru.Items.Utility.Extensions;
@@ -18,6 +20,9 @@ namespace Esuriru.Items
             ShowIfAttribute.Type.ReadOnly)]
         [SerializeField]
         private string _name;
+
+        [SerializeField]
+        private List<ItemComponent> _components;
     
         #endregion
          
