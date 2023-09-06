@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 644058f086bbf5c4db063fd49104b223, type: 3}
   m_Name: WoodenSword
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: 
+  _enableCustomName: 1
+  _name: po
