@@ -7,6 +7,11 @@ using Esuriru.Items.Utility;
 
 namespace Esuriru.Items
 {
+    // TODO - The components should be sorted with priority
+    // For example, if you have a health potion,
+    // the healing component should be called first
+    // then the consumable component after
+
     [CreateAssetMenu(fileName = "New Item", 
         menuName = "items/Scriptable Objects/Item Base")]
     public class ItemBase : ScriptableObject
